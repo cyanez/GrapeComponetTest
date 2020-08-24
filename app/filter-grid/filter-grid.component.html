@@ -1,0 +1,36 @@
+<h1>
+    2019 Sedans (Angular)
+  </h1>
+  <p>
+    Sort by model and price by clicking the column headers.
+    Filter by value or condition by clicking the filter icons
+    in the column headers.
+    Collapse and expand makes to see all the models.
+    Select one or more models with the mouse or keyboard and
+    copy your selection to the clipboard.</p>
+  <p>
+    Showing
+    <b>{{data.items.length}}</b> models from
+    <b>{{data.groups.length}}</b> makes.</p>
+  <wj-flex-grid
+    [allowResizing]="'None'"
+    [showAlternatingRows]="false"
+    [isReadOnly]="false"
+    [selectionMode]="'ListBox'"
+    [headersVisibility]="'Column'"
+    [itemsSource]="data"
+  >
+    <wj-flex-grid-column
+      [binding]="'make'" [header]="'Make'" [width]="'*'" [visible]="false">
+    </wj-flex-grid-column>
+    <wj-flex-grid-column
+      [binding]="'model'" [header]="'Model'" [width]="'*'">
+    </wj-flex-grid-column>
+    <wj-flex-grid-column
+      [binding]="'price'" [header]="'Price'" [format]="'c0'" [aggregate]="'Avg'" [width]="'.5*'">
+    </wj-flex-grid-column>
+  
+    <wj-flex-grid-filter></wj-flex-grid-filter>
+  
+  </wj-flex-grid>
+  
